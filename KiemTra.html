@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" onsubmit="return kt()">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="card">
+                        <div class="card-header bg bg-primary text-center">
+                            <h3>Billing Address</h3>
+                        </div>
+                        <div class="card-body" style="background-color: #ccc;">
+                            <div class="row">
+                                <div class="form-group col-md-6 ">
+                                    <label for="">Fisrt Name</label>
+                                    <input type="text" name="" id="Fisrt_Name" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="">Last Name</label>
+                                    <input type="text" name="" id="Last_Name" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                                <div class="form-group col-md-12 ">
+                                    <label for="">User Name</label>
+                                    <div class="row" style="margin: 0 4px;">
+                                        <b class="col-md-1 text-center" style="background-color: #ee4d2d;border: 1px solid #ccc;padding: 4px;
+                                         border-start-start-radius: 4px;">@</b>
+                                        <input type="text" name="" id="User_Name" class="form-control col-md-11"
+                                            placeholder="User Name" aria-describedby="helpId">
+                                    </div>
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="">Email</label>
+                                    <input type="email" name="" id="Email" class="form-control"
+                                        placeholder="abc@gmail.com" aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="">Address</label>
+                                    <input type="text" name="" id="Address" class="form-control"
+                                        placeholder="1234 Maint ST" aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="">Address 2</label>
+                                    <input type="text" name="" id="Address_2" class="form-control"
+                                        placeholder="Apartment or  suite" aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-2" style="background-color: #ccc;">
+                        <div class="card-body row">
+                            <div class="col-md-3">
+                                <p>Country</p>
+                                <select name="" id="Country"
+                                    style="border: 1px solid #ccc;border-radius: 4px;width: 150px;height: 38px;">
+                                    <option value="" selected="selected"> </option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select><br>
+                            </div>
+                            <div class="col-md-3 offset-md-1">
+                                <p>State</p>
+                                <select name="" id="State"
+                                    style="border: 1px solid #ccc;border-radius: 4px;width: 150px; height: 38px;">
+                                    <option value="" selected="selected"> </option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select><br>
+                            </div>
+                            <div class="col-md-3 offset-md-1">
+
+                                <div class="form-group">
+                                    <label for="">Zip</label>
+                                    <input type="number" name="" id="Zip" class="form-control mt-2  " placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-check" style="margin-left: 20px;">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="" id="Ship" value="">
+                                Shipping address is the same as my billing
+                                address
+                            </label>
+                        </div>
+                        <div class="form-check" style="margin-left: 20px;">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="" id="Save" value="">
+                                Save this information for next time
+                            </label>
+                        </div>
+                        <hr>
+                        <h3 class="text-center">Payment</h3>
+                        <div class="form-check" style="margin-left: 20px;">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input Payment" name="Payment" id=""
+                                    value="Credit">
+                                Credit card <br>
+                                <input type="radio" class="form-check-input Payment" name="Payment" id="" value="Debit">
+                                Debit card <br>
+                                <input type="radio" class="form-check-input Payment" name="Payment" id=""
+                                    value="PayPal">
+                                PayPal <br>
+                            </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" >
+                                <div class="form-group">
+                                    <label for="">Name on card</label>
+                                    <input type="text" name="" id="Name_card" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Credit card Number</label>
+                                    <input type="number" name="" id="Credit_Number" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="">Expiration</label>
+                                    <input type="date" name="" id="Expiration" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="">CVV</label>
+                                    <input type="number" name="" id="CVV" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col-md-12 ">
+                                <button type="submit" style="width: 95%;margin-left: 10px;"
+                                    class="btn btn-primary ">Countinue to checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        function kt() {
+            var firstName = document.getElementById('Fisrt_Name')
+            if (firstName.value == "") {
+                alert("Vui lòng nhập họ");
+                return false
+            } else if (firstName.value.length < 5 || firstName.value.length > 20) {
+                alert("phải từ 5 đến 20 kí tự")
+                return false
+            }
+
+            var lastname = document.getElementById('Last_Name')
+            if (lastname.value == "") {
+                alert("Vui lòng nhập Tên");
+                return false
+            } else if (lastname.value.length < 5 || lastname.value.length > 20) {
+                alert("phải từ 5 đến 20 kí tự")
+                return false
+            }
+
+            var userName = document.getElementById('User_Name')
+            if (userName.value == "") {
+                alert("Vui lòng nhập userName");
+                return false
+            } else if (userName.value.length < 5 || userName.value.length > 20) {
+                alert("phải từ 5 đến 20 kí tự")
+                return false
+            }
+            var gmail = document.getElementById('Email')
+            if (gmail.value == "") {
+                alert("Vui lòng nhập Email");
+                return false
+            }
+            var address = document.getElementById('Address')
+            if (address.value == "") {
+                alert("Vui lòng nhập Address");
+                return false
+            }
+            var address_2 = document.getElementById('Address_2')
+            if (address_2.value == "") {
+                alert("Vui lòng nhập Address_2");
+                return false
+            }
+            var Country = document.getElementById("Country")
+            if (Country.value.length == 0) {
+                alert("Vui lòng chọn Country")
+                return false
+            }
+            var State = document.getElementById("State")
+            if (State.value.length == 0) {
+                alert("Vui lòng chọn State")
+                return false
+            }
+            var ship = document.getElementById('Ship')
+            var save = document.getElementById('Save')
+            if (!ship.checked &&!save.checked) {
+                alert("Vui lòng chọn Ship or Save hoặc chọn cả 2");
+                return false
+            }
+           
+            
+            
+            
+            var radio = document.getElementsByName("Payment")
+            if (!radio[0].checked && !radio[1].checked&& !radio[2].checked) {
+                alert("vui lòng chọn Loại thẻ thanh toán!")
+                return false
+            }
+            var Name_card = document.getElementById('Name_card')
+            if (Name_card.value == "") {
+                alert("Vui lòng nhập Name_card");
+                return false
+            }
+            var Credit_Number = document.getElementById('Credit_Number')
+            if (Credit_Number.value == "") {
+                alert("Vui lòng nhập Credit_Number");
+                return false
+            } else if (Credit_Number.value.length < 10 || Credit_Number.value.length > 11) {
+                alert("phải  10 hoặc 11 số")
+                return false
+            }
+            
+            var Name_card = document.getElementById('Name_card')
+            if (Name_card.value == "") {
+                alert("Vui lòng nhập Name_card");
+                return false
+            } else if (Name_card.value.length < 5 || Name_card.value.length > 20) {
+                alert("phải từ 5 đến 20 kí tự")
+                return false
+            }
+            
+            var Expiration = document.getElementById('Expiration')
+            if (Expiration.value == "") {
+                alert("Vui lòng nhập Expiration");
+                return false
+            } else if (Zip.value.length < 10 || Zip.value.length > 11) {
+                alert("phải  10 hoặc 11 kí tự")
+                return false
+            }
+            var CVV = document.getElementById('CVV')
+            if (CVV.value == "") {
+                alert("Vui lòng nhập CVV");
+                return false
+            } else if (CVV.value.length != 3) {
+                alert("CVV chỉ được nhập 3 số");
+                return false
+            }
+            alert("chúc mừng bạn đã nhập đúng")
+            return true
+        }
+    </script>
+</body>
+
+</html>
