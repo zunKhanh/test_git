@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="/angular.min.js"></script>
+</head>
+  <body ng-app="myApp">
+     <div class="container" ng-controller="CtrlLab8">
+        <div class="row">
+            <div class="col-md-6 offset-md-1">
+                <div class="card" style="width: 900px;">
+                    <div class="card-header">
+                        <h4>Thằng nào uống nước thi order ít thì ...</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordred">
+                            <thead>
+                            <tr>
+                                <th>Chon</th>
+                                <th>ten hang</th>
+                                <th>so luong</th>
+                                <th>don gia</th>
+                                <th>thanh tien</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in box" ng-init="item.count=1">
+                                    <th scope="row"><input type="checkbox" name="" ng-model="item.buy" id=""></th>
+                                    <th>{{item.name}}</th>
+                                    <th><input class="form-control" type="number" ng-disabled="!item.buy" ng-model="item.count" ></th>
+                                    <th>{{item.price}}</th>
+                                    <th>{{item.count*item.price}}</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4">Tong</th>
+                                    <th>{{sum()}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button type="button" class="btn btn-primary" ng-click="test()">Check</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    var app = angular.module("myApp", []);
+        app.controller("CtrlLab8", function ($scope) {
+            $scope.box = [
+                {
+                    name: "cafe đen",
+                    price: 12000
+                }
+                ,
+                {
+                    name: "cafe sữa",
+                    price: 15000
+                },
+                {
+                    name: "Trà sữa",
+                    price: 25000
+                },{
+                    name: "Trà đào",
+                    price: 27000
+                },];
+            $scope.test = () => {
+                console.log($scope.box);
+            }
+            $scope.sum = () => {
+                var sum = 0;
+                for (var i = 0; i < $scope.box.length; i++) {
+                    if ($scope.box[i].buy == true) {
+                        sum += $scope.box[i].count * $scope.box[i].price;
+                    }
+                } return sum;
+            }
+        })
+  </script>
+</html>
