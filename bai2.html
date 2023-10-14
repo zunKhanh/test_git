@@ -9,43 +9,36 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="/angular.min.js"></script>
+    <script src="./prods.js"></script>
 </head>
   <body ng-app="myApp">
-     <div class="container" ng-controller="CtrlLab8">
+     <div class="container" ng-controller="CtrlLab8" style="text-align: center;">
         <div class="row">
             <div class="col-md-6 offset-md-1">
                 <div class="card" style="width: 900px;">
                     <div class="card-header">
-                        <h4>Thằng nào uống nước thi order ít thì ...</h4>
+                        <h4 style="background-color: aqua;">Danh sách hàng hóa</h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordred">
                             <thead>
                             <tr>
-                                <th>Chon</th>
-                                <th>ten hang</th>
-                                <th>so luong</th>
-                                <th>don gia</th>
-                                <th>thanh tien</th>
+                                <th>sản phẩm </th>
+                                <th>đơn giá</th>
+                                <th>giảm giá</th>
+                                <th>ngày mua</th>
                             </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in box" ng-init="item.count=1">
-                                    <th scope="row"><input type="checkbox" name="" ng-model="item.buy" id=""></th>
-                                    <th>{{item.name}}</th>
-                                    <th><input class="form-control" type="number" ng-disabled="!item.buy" ng-model="item.count" ></th>
-                                    <th>{{item.price}}</th>
-                                    <th>{{item.count*item.price}}</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="4">Tong</th>
-                                    <th>{{sum()}}</th>
+                                    <th>{{item.name | uppercase}}</th>
+                                    <th>{{item.price | currency}}</th>
+                                    <th>{{item.discount |number:2}}</th>
+                                    <th>{{item.discount |percentage:2}}</th>
+                                    <th>{{item.date|date:"MMMM-dd-yyyy"}}</th>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="card-footer text-muted">
-                        <button type="button" class="btn btn-primary" ng-click="test()">Check</button>
                     </div>
                 </div>
             </div>
@@ -60,34 +53,71 @@
   <script>
     var app = angular.module("myApp", []);
         app.controller("CtrlLab8", function ($scope) {
-            $scope.box = [
-                {
-                    name: "cafe đen",
-                    price: 12000
-                }
-                ,
-                {
-                    name: "cafe sữa",
-                    price: 15000
-                },
-                {
-                    name: "Trà sữa",
-                    price: 25000
-                },{
-                    name: "Trà đào",
-                    price: 27000
-                },];
-            $scope.test = () => {
-                console.log($scope.box);
-            }
-            $scope.sum = () => {
-                var sum = 0;
-                for (var i = 0; i < $scope.box.length; i++) {
-                    if ($scope.box[i].buy == true) {
-                        sum += $scope.box[i].count * $scope.box[i].price;
-                    }
-                } return sum;
-            }
+            $scope.list_product = list
+    //         $scope.box = [
+    // {
+    //     "name": "Máy tính DELL",
+    //     "price": 1000,
+    //     "discount": 0.19,
+    //     "date": "2022-06-09"
+    // },
+    // {
+    //     "name": "Máy tính HP",
+    //     "price": 1200,
+    //     "discount": 0.5,
+    //     "date": "2022-12-09"
+    // },
+    // {
+    //     "name": "Máy tính Lenovo",
+    //     "price": 1500,
+    //     "discount": 0.7,
+    //     "date": "2022-03-09"
+    // },
+    // {
+    //     "name": "Máy tính Apple",
+    //     "price": 2000,
+    //     "discount": 2.0,
+    //     "date": "2022-05-07"
+    // },
+    // {
+    //     "name": "Máy tính Acer",
+    //     "price": 1200,
+    //     "discount": 0.3,
+    //     "date": "2022-05-06"
+    // },
+    // {
+    //     "name": "Máy tính ASUS",
+    //     "price": 2000,
+    //     "discount": 0.4,
+    //     "date": "2022-05-05"
+    // },
+    // {
+    //     "name": "Máy tính LG",
+    //     "price": 1500,
+    //     "discount": 0.5,
+    //     "date": "2022-05-08"
+    // },
+    // {
+    //     "name": "Máy tính Huawei",
+    //     "price": 1600,
+    //     "discount": 0.5,
+    //     "date": "2022-05-01"
+    // },
+    // {
+    //     "name": "Máy tính Gigabyte",
+    //     "price": 1700,
+    //     "discount": 0.6,
+    //     "date": "2022-05-11"
+    // }];
         })
+  </script>
+  <script>
+      app.filter('percentage', function($filter){
+        return function(input,decimals)
+        {
+            return $filter('number')(input * 100, decimals) + '%';
+        }
+     }
+     )
   </script>
 </html>
