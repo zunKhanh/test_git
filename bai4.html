@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>lab9.4</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <script>
+    var app=angular.module('myApp',[])
+    app.controller('Lab9Ctrl', function ($scope){
+        $scope.ListItem = [
+                {
+                    "name": "Máy tính DELL",
+                    "price": 1000,
+                    "discount": 0.19,
+                    "date": "2022-06-09"
+                },
+                {
+                    "name": "Máy tính HP",
+                    "price": 1200,
+                    "discount": 0.5,
+                    "date": "2022-12-09"
+                },
+                {
+                    "name": "Máy tính Lenovo",
+                    "price": 1500,
+                    "discount": 0.7,
+                    "date": "2022-03-09"
+                },
+                {
+                    "name": "Máy tính Apple",
+                    "price": 2000,
+                    "discount": 2.0,
+                    "date": "2022-05-07"
+                },
+                {
+                    "name": "Máy tính Acer",
+                    "price": 1200,
+                    "discount": 0.3,
+                    "date": "2022-05-06"
+                },
+                {
+                    "name": "Máy tính ASUS",
+                    "price": 2000,
+                    "discount": 0.4,
+                    "date": "2022-05-05"
+                },
+                {
+                    "name": "Máy tính LG",
+                    "price": 1500,
+                    "discount": 0.5,
+                    "date": "2022-05-08"
+                },
+                {
+                    "name": "Máy tính Huawei",
+                    "price": 1600,
+                    "discount": 0.5,
+                    "date": "2022-05-01"
+                },
+                {
+                    "name": "Máy tính Gigabyte",
+                    "price": 1700,
+                    "discount": 0.6,
+                    "date": "2022-05-11"
+                }
+            ];
+            
+            $scope.sortBy=function(prop){
+                $scope.prop =prop;
+            }
+            $scope.begin = 0;
+            $scope.pagecount=Math.ceil($scope.ListItem.length/8);
+            $scope.last = function(){
+                $scope.begin = ($scope.pagecount-1) *8;
+            }
+            $scope.first = function(){
+                $scope.begin = 0;
+            }
+            $scope.next = function(){
+                if($scope.begin < ($scope.pagecount-1) *8) {
+                    $scope.begin += 8;
+                }
+            }
+            $scope.prev = function(){
+                if($scope.begin > 0) 
+                    $scope.begin -= 8;
+            }
+
+    })
+    app.filter('percentage',function($filter){
+        return function(input,decimals){
+        return $filter('number')(input*100,decimals) +'%';
+        }
+    });
+  </script>
+
+  <body ng-app="myApp"  ng-controller="Lab9Ctrl">
+      <div class="container">
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header text-center bg-info">
+                        <h2>DANH SÁCH HÀNG HÓA</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><a href="" ng-click="sortBy('name')">Sản Phẩm</a></th>
+                                    <th><a href="" ng-click="sortBy('price')">Đơn Giá</a</th>
+                                    <th><a href="" ng-click="sortBy('discount')">Giảm Giá</a></th>
+                                    <th><a href="" ng-click="sortBy('date')">Ngày Mua</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in ListItem | orderBy: prop | limitTo: 8:begin ">
+                                    <td scope="row">
+                                        <p >
+                                            {{item.name|uppercase}}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            {{item.price|currency}}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p ng-filter="percentage">
+                                            {{item.discount|percentage:2}}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            {{item.date|date:"MMMM-dd-yyyy"}}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer bg-infor">
+                        <button type="button" class="btn btn-primary" ng-click="first()">First</button>
+                        <button type="button" class="btn btn-info" ng-click="prev()">Prev</button>
+                        <button type="button" class="btn btn-info" ng-click="next()">Next</button>
+                        <button type="button" class="btn btn-primary" ng-click="last()">Last</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+            </div>
+        </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

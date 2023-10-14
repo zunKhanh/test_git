@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="/angular.min.js"></script>
+    <script src="./prods.js"></script>
+</head>
+  <body ng-app="myApp">
+     <div class="container" ng-controller="CtrlLab8" style="text-align: center;">
+        <div class="row">
+            <div class="col-md-6 offset-md-1">
+                <div class="card" style="width: 900px;">
+                    <div class="card-header">
+                        <h4 style="background-color: aqua;">Danh sách hàng hóa</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordred">
+                            <thead>
+                            <tr>
+                                <th>sản phẩm </th>
+                                <th>đơn giá</th>
+                                <th>giảm giá</th>
+                                <th>ngày mua</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in box" ng-init="item.count=1">
+                                    <th>{{item.name | uppercase}}</th>
+                                    <th>{{item.price | currency}}</th>
+                                    <th>{{item.discount |number:2}}</th>
+                                    <th>{{item.discount |percentage:2}}</th>
+                                    <th>{{item.date|date:"MMMM-dd-yyyy"}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    var app = angular.module("myApp", []);
+        app.controller("CtrlLab8", function ($scope) {
+            $scope.list_product = list
+    //         $scope.box = [
+    // {
+    //     "name": "Máy tính DELL",
+    //     "price": 1000,
+    //     "discount": 0.19,
+    //     "date": "2022-06-09"
+    // },
+    // {
+    //     "name": "Máy tính HP",
+    //     "price": 1200,
+    //     "discount": 0.5,
+    //     "date": "2022-12-09"
+    // },
+    // {
+    //     "name": "Máy tính Lenovo",
+    //     "price": 1500,
+    //     "discount": 0.7,
+    //     "date": "2022-03-09"
+    // },
+    // {
+    //     "name": "Máy tính Apple",
+    //     "price": 2000,
+    //     "discount": 2.0,
+    //     "date": "2022-05-07"
+    // },
+    // {
+    //     "name": "Máy tính Acer",
+    //     "price": 1200,
+    //     "discount": 0.3,
+    //     "date": "2022-05-06"
+    // },
+    // {
+    //     "name": "Máy tính ASUS",
+    //     "price": 2000,
+    //     "discount": 0.4,
+    //     "date": "2022-05-05"
+    // },
+    // {
+    //     "name": "Máy tính LG",
+    //     "price": 1500,
+    //     "discount": 0.5,
+    //     "date": "2022-05-08"
+    // },
+    // {
+    //     "name": "Máy tính Huawei",
+    //     "price": 1600,
+    //     "discount": 0.5,
+    //     "date": "2022-05-01"
+    // },
+    // {
+    //     "name": "Máy tính Gigabyte",
+    //     "price": 1700,
+    //     "discount": 0.6,
+    //     "date": "2022-05-11"
+    // }];
+        })
+  </script>
+  <script>
+      app.filter('percentage', function($filter){
+        return function(input,decimals)
+        {
+            return $filter('number')(input * 100, decimals) + '%';
+        }
+     }
+     )
+  </script>
+</html>
