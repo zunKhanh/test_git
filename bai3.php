@@ -11,7 +11,7 @@
   </head>
   <body>
     <?php
-    $ngay="";
+    $ngay="";a
     $thang="";
     $nam="";
     $chuoi="";
