@@ -29,7 +29,7 @@
 </head>
 <?php
 class nhan_vien
-{
+{ aaaa
   public $ho_ten, $so_con, $ngay_sinh, $ngay_vao, $gioi_tinh, $hsl;
   const lcb = 45000;
   public function __construct($ho_ten, $so_con, $ngay_sinh, $ngay_vao, $gioi_tinh, $hsl)
